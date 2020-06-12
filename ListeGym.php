@@ -75,28 +75,15 @@ https://www.tooplate.com/view/2119-gymso-fitness
     <div class="container">
         <div class="heading">
         </div>
-        <br><br>
+        <br><br><br><br><br>
 
         <!-- Base de donnée -->
+
         <?php
-        try {
-            //Se connecter à la base de données
-            $bdd = new PDO("mysql:host=localhost;dbname=gymlist", 'root', '',
-                array(
-                    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-                    PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES UTF8'
-                )
-            );
-            // Gérer l'erreur
-        } catch (PDOException $error) {
-            echo $error->getMessage();
-        }
+        require_once 'getConnection.php';
+        require_once 'GymSearch.php';
 
-        $req = 'select * from ariana';
-        $response = $bdd->query($req);
-
-
-        $resultat = $response->fetchAll(); ?>
+         ?>
 
 
         <div class="row">
@@ -106,13 +93,16 @@ https://www.tooplate.com/view/2119-gymso-fitness
                            as $value) { ?>
                 <div class="card">
                     <div class="card-header">
-                        <h1><img src="" alt="<?php echo $value[1] ?>"></h1>
+                        <h1><img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($value['image']); ?>" width='200' height="250"/> </h1>
                     </div>
                     <div class="card-body">
                         <p>
-                            <?php echo $value['Adresse'] ?>
+                            <?php echo $value['nom']; ?><br>
+                            <?php echo $value['prix'].' DT/Mois'; ?><br>
+                            <?php if (isset($value['tel']))
+                            { echo $value['tel'];} ; ?><br>
                         </p>
-                        <a href= '<?php echo $value['LienGMaps'] ?>' class="btn">Voir sur Carte</a>
+                        <a href='<?php echo $value['lienCarte'] ?>' class="btn">Voir sur Carte</a>
                     </div>
                 </div>
 
