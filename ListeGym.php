@@ -96,11 +96,15 @@ https://www.tooplate.com/view/2119-gymso-fitness
                         <h1><img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($value['image']); ?>" width='200' height="250"/> </h1>
                     </div>
                     <div class="card-body">
-                        <p>
-                            <?php echo $value['nom']; ?><br>
-                            <?php echo $value['prix'].' DT/Mois'; ?><br>
+                        <p style="color: red">
+                            <?php if (isset($value['nom']))
+                            { echo $value['nom'];} ; ?><br>
+                        </p>
+                            <?php if (isset($value['prix']))
+                            { echo $value['prix'].' DT/Mois';} ; ?><br>
+                        </p>
                             <?php if (isset($value['tel']))
-                            { echo $value['tel'];} ; ?><br>
+                        { echo $value['tel'];} ; ?><br>
                         </p>
                         <a href='<?php echo $value['lienCarte'] ?>' class="btn">Voir sur Carte</a>
                     </div>

@@ -7,6 +7,7 @@
 body {
     background: #fefefe;
     font-family: sans-serif;
+
 }
 
 .container {
@@ -16,8 +17,8 @@ body {
 
 .heading {
     text-align: center;
-    font-size: 30px;
-    margin-bottom: 50px;
+
+    margin-bottom: 0px;
 }
 
 .row {
@@ -31,21 +32,25 @@ body {
     width: 23%;
     background: #fff;
     border: 1px solid #ccc;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
     transition: 0.3s;
+
 }
 
 .card-header {
     text-align: center;
-    padding: 50px 10px;
-    background: linear-gradient(to right, #ff416c, #ff4b2b);
+    padding: 0px 0px;
+    background: linear-gradient(to right, #FF416C, #ff4b2b);
     color: #fff;
+    height: 300px;
+
 }
 
 .card-body {
     padding: 30px 20px;
     text-align: center;
-    font-size: 18px;
+
+
 }
 
 .card-body .btn {
