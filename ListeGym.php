@@ -93,7 +93,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
                            as $value) { ?>
                 <div class="card">
                     <div class="card-header">
-                        <h1><img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($value['image']); ?>" width='200' height="250"/> </h1>
+                        <h1><img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($value['image']); ?>" width='250' height="280"/> </h1>
                     </div>
                     <div class="card-body">
                         <p style="color: red">

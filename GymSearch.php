@@ -7,7 +7,7 @@ $prix = $_POST['prix'];
 $type = $_POST['type'];
 // Requete :
 
-$req = "select * from sportindiv where (sport = :typ) and (zone = :zon) and (prix <= :pr) ";
+$req = "select * from sportindiv where sport = :typ AND zone = :zon AND prix < :pr;";
 
 $reponse = $bdd->prepare($req);
 $reponse->execute(array(
