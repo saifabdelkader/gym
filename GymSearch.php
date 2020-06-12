@@ -2,17 +2,17 @@
 
 
 // Post Data:
-$zone = $_POST['zone'];
+$zonee = $_POST['zone'];
 $prix = $_POST['prix'];
 $type = $_POST['type'];
 // Requete :
 
-$req = "select * from sportindiv where sport = :typ AND zone = :zon AND prix < :pr;";
+$req = "select * from sportindiv where prix <= :pr AND zone = :zon AND sport = :typ ";
 
 $reponse = $bdd->prepare($req);
 $reponse->execute(array(
     ':typ' => $type,
-    ':zon' => $zone,
+    ':zon' => $zonee,
     ':pr' => $prix
 
 ));
