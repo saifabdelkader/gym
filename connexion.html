@@ -4,6 +4,8 @@
 <head>
 
     <title>Gym life</title>
+    <script src="https://kit.fontawesome.com/f7eac79f34.js" crossorigin="anonymous"></script>
+
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
@@ -18,10 +20,27 @@
 
     <!-- MAIN CSS -->
     <link rel="stylesheet" href="css/tooplate-gymso-style.css">
-    <!--
-Tooplate 2119 Gymso Fitness
-https://www.tooplate.com/view/2119-gymso-fitness
--->
+    <script language="javascript" type="text/javascript">
+
+        var b_prénom = false; b_nom = false; b_pseudo = false; b_naiss = false; b_pass = false; b_Femme = false; b_Homme = false;
+
+        function envoyer() {
+            if (b_prénom = true && b_nom == true &&
+                b_pseudo == true && b_pass == true &&
+                b_Femme == true && b_Homme == true && b_naiss == true) {
+                document.getElementById("message").innerText = "Envoi serveur";
+                //document.getElementById("compte").submit();
+            }
+            else {
+                document.getElementById("message").innerText = " Le formulaire n'est pas complet";
+
+            }
+            //document.getElementById("message").innerText +="-"+b_prénom + "-" +b_nom  +"-"+b_pseudo +"-"+b_pass +"-"+b_Femme +"-"+b_Homme;
+        }
+
+    </script>
+    <script language="javascript" src="insc.js"></script>
+</head>
 </head>
 
 <body data-spy="scroll" data-target="#navbarNav" data-offset="50">
@@ -40,22 +59,23 @@ https://www.tooplate.com/view/2119-gymso-fitness
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-lg-auto">
                     <li class="nav-item">
-                        <a href="index.html" class="nav-link smoothScroll">ACCUEIL</a>
+                        <a href="index.html" class="nav-link smoothScroll"><i class="fas fa-home"></i>ACCUEIL</a>
                     </li>
 
                     <li class="nav-item">
-                        <a href="index.html" class="nav-link smoothScroll">À PROPOS</a>
+                        <a href="index.html" class="nav-link smoothScroll"><i class="far fa-address-card"></i>
+                            À PROPOS</a>
                     </li>
 
                     <li class="nav-item">
-                        <a href="index.html" class="nav-link smoothScroll">SERVICES</a>
+                        <a href="index.html" class="nav-link smoothScroll"><i class="fas fa-server"></i> SERVICES</a>
                     </li>
 
                     <li class="nav-item">
-                        <a href="#connexion" class="nav-link smoothScroll">connexion</a>
+                        <a href="connexion.html" class="nav-link smoothScroll"><i class="fas fa-wifi"></i> connexion</a>
                     </li>
                     <li class="nav-item">
-                        <a href="index.html" class="nav-link smoothScroll">Contact</a>
+                        <a href="index.html" class="nav-link smoothScroll"><i class="far fa-comments"></i> Contact</a>
                     </li>
                 </ul>
 
@@ -79,49 +99,76 @@ https://www.tooplate.com/view/2119-gymso-fitness
         <div class="col-lg-8 col-md-10 mx-auto col-12">
             <div class="hero-text mt-5 text-right">
 
-                <form method="post" action="traitement.php">
-                    <p>
-                        <label for="pseudo" class="text-white">Votre
-                            Adresse e-mail ou mobile :</label>
-                        <input type="text" name="pseudo" id="pseudo" maxlength="10" />
+                <form method="post" action="login.php">
+                    <div class="form-group">
+                        <label for="user" class="text-white">Email address</label>
+                        <input type="email" id="username" name="username">
 
-                        <br />
-                        <label for="pass" class="text-white">Votre mot de passe :</label>
-                        <input type="password" name="pass" id="pass" maxlength="15" /><br>
-                        <input type="submit" value="Connexion" class="btn custom-btn bordered mt-3" />
-                        <input type="reset" value="Annuler" class="btn custom-btn bordered mt-3" />
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="text-white">Password</label>
+                        <input type="password" id="password" name="password">
+                    </div>
+                    // s'il vous plait voir la page login.php mais est n'est pas terminé
+                    <a href="client.html"> <input value="connexion" class="btn custom-btn bordered mt-3" /></a>
 
-
-                    </p>
+                    <input type="reset" value="Annuler" class="btn custom-btn bordered mt-3" />
                 </form>
             </div>
             <br> <br><br>
+            <div style="width: 800px;display: inline-block;" id="conteneur">
+                <div id="centre">
+                    <div id="message">
+                        <p class="text-white" id="compte"> Tous les champs sont obligatoires *</p><br>
+                    </div>
 
 
-            <form>
-                <p>
-                <h1 class="text-white"> Créer un compte</h1>
-                </p><br>
-                <br>
-                <input type="text" name="prénom" maxlength="10" placeholder="Prénom" />
+                    <form>
+                        <p>
+                        <h1 class="text-white" id="compte"> Créer un compte</h1>
+                        </p><br>
+                        <br>
+                        <input type="text" name="prénom" id="prénom" maxlength="10" placeholder="Prénom *"
+                            onclick="saisie('Prénom',this.id)" onmouseout="retablir('Prénom',this.id)"
+                            onblur="mev('Prénom',this.id)" />
 
-                <input type="text" name="Nom" maxlength="10" placeholder="Nom" /><br><br>
-                <p> <label for="pseudo" class="text-white"> </label>
-                    <input type="text" name="pseudo" id="pseudo" maxlength="10"
-                        placeholder="Adresse e-mail ou mobile" />
-                </p>
+                        <input type="text" name="Nom" id="nom" maxlength="10" placeholder="Nom *"
+                            onclick="saisie('Nom',this.id)" onmouseout="retablir('Nom',this.id)"
+                            onblur="mev('Nom',this.id)" /><br><br>
+                        <p> <label for="pseudo" class="text-white"> </label>
 
-                <p><label for="pass" class="text-white"></label>
-                    <input type="password" name="pass" id="pass" maxlength="15" placeholder="Mot de passe " /><br></p>
-                <p class="text-white">Date de naissance</p>
-                <input type="date" /><br><br>
-                <p class="text-white">Genre</p>
-                <input type="radio" id="Femme" /> <label for="riche" class="text-white">Femme</label>
-                <input type="radio" id="Homme" /> <label for="celebre" class="text-white">Homme</label><br>
-            </form> <br> <input type="submit" value="Inscription" class="btn custom-btn bordered mt-3" />
-            <input type="reset" value="Annuler" class="btn custom-btn bordered mt-3" />
-            <br><br> <br><br>
+                            <input type="text" name="pseudo" id="pseudo" maxlength="10"
+                                placeholder="Adresse e-mail ou mobile *"
+                                onclick="saisie('Adresse e-mail ou mobile',this.id)"
+                                onmouseout="retablir('Adresse e-mail ou mobile',this.id)"
+                                onblur="mev('Adresse e-mail ou mobile',this.id)" />
+                        </p>
 
+                        <p><label for="pass" class="text-white"></label>
+
+                            <input type="password" name="pass" id="pass" maxlength="15" placeholder="Mot de passe *"
+                                onclick="saisie('Mot de passe',this.id)" onmouseout="retablir('Mot de passe',this.id)"
+                                onblur="mev('Mot de passe',this.id)" /><br></p>
+                        <p class="text-white" id="naiss">Date de naissance *</p>
+                        <input type="date" name="naissance" onclick="saisie('Date de naissance',this.id)"
+                            onmouseout="retablir('Date de naissance',this.id)"
+                            onblur="mev('Date de naissance',this.id)" /><br><br>
+                        <p class="text-white">Genre *</p>
+                        <input type="radio" id="Femme" /> <label for="riche" class="text-white">Femme</label>
+                        <input type="radio" id="Homme" /> <label for="celebre" class="text-white">Homme</label><br>
+                        // s'il vous plait voir la page insc.js mais est n'est pas terminé
+                        <br> <input type="submit" value="Inscription" onclick="envoyer()"
+                            class="btn custom-btn bordered mt-3" />
+                        <input type="reset" value="Annuler" class="btn custom-btn bordered mt-3" />
+                        <br><br> <br><br>
+                    </form>
+
+
+
+
+                </div>
+
+            </div>
 
 
 
